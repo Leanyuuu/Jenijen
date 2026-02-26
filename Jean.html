@@ -1,0 +1,1347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Birthday Queen – 22</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --purple-50: #f5f3ff;
+        --purple-100: #ede9fe;
+        --purple-500: #8b5cf6;
+        --pink-50: #fdf2f8;
+        --pink-100: #fce7f3;
+        --pink-500: #ec4899;
+        --fuchsia-500: #d946ef;
+        --violet-500: #a855f7;
+        --bg-gradient: linear-gradient(135deg, #fdf2ff 0%, #f5f3ff 35%, #fdf2f8 70%, #f5f3ff 100%);
+        --card-bg: rgba(255, 255, 255, 0.88);
+        --border-soft: rgba(255, 255, 255, 0.8);
+        --shadow-soft: 0 18px 45px rgba(148, 82, 191, 0.16);
+        --shadow-subtle: 0 10px 30px rgba(148, 82, 191, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+        color: #3b0764;
+        background: radial-gradient(circle at top left, #fdf2ff 0, #ffffff 35%, #f3e8ff 70%, #fdf2ff 100%);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        min-height: 100vh;
+        background: var(--bg-gradient);
+        color: #3b0764;
+        overflow-x: hidden;
+      }
+
+      .content {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem 3rem;
+      }
+
+      .hero {
+        position: relative;
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.75rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.9rem 0.4rem 0.5rem;
+        border-radius: 999px;
+        background: radial-gradient(circle at 0 0, #fdf2ff 0, #f5f3ff 38%, #fef2f2 100%);
+        border: 1px solid rgba(216, 180, 254, 0.8);
+        box-shadow: 0 10px 30px rgba(148, 82, 191, 0.18);
+        color: #6b21a8;
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .pill-dot {
+        width: 1.55rem;
+        height: 1.55rem;
+        border-radius: 999px;
+        background: conic-gradient(from 210deg, #f97316, #ec4899, #a855f7, #f97316);
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .pill-dot-inner {
+        width: 72%;
+        height: 72%;
+        border-radius: inherit;
+        background: radial-gradient(circle at 0 0, #ffffff 0, #fdf2ff 50%, #fee2ff 100%);
+      }
+
+      .pill-label {
+        opacity: 0.9;
+      }
+
+      .hero-heading {
+        margin-top: 1.3rem;
+        font-size: clamp(2.4rem, 4vw + 1.3rem, 3.4rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: #4c1d95;
+      }
+
+      .hero-heading-line {
+        display: block;
+        will-change: transform, opacity;
+      }
+
+      .hero-heading-line--name {
+        background: linear-gradient(to right, #a855f7, #ec4899, #f97316);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% 100%;
+        animation: hero-heading-gradient 4s ease-in-out infinite alternate;
+      }
+
+      @keyframes hero-heading-gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .sparkle-divider {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin: 1.1rem 0 0.6rem;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #7e22ce;
+        opacity: 0.9;
+      }
+
+      .sparkle-line {
+        height: 1px;
+        width: 3rem;
+        background: linear-gradient(to right, transparent, rgba(147, 51, 234, 0.7));
+      }
+
+      .sparkle-icon {
+        width: 1.05rem;
+        height: 1.05rem;
+        border-radius: 999px;
+        background: radial-gradient(circle at 40% 0, #fefce8 0, #fef3c7 40%, #fde68a 80%);
+        box-shadow: 0 0 0 1px rgba(253, 224, 71, 0.7), 0 0 18px rgba(250, 204, 21, 0.7);
+        position: relative;
+      }
+
+      .sparkle-icon::before,
+      .sparkle-icon::after {
+        content: "";
+        position: absolute;
+        inset: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 999px;
+        border: 1px solid rgba(250, 204, 21, 0.8);
+      }
+
+      .sparkle-icon::before {
+        width: 180%;
+        height: 180%;
+      }
+
+      .sparkle-icon::after {
+        width: 260%;
+        height: 260%;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #7e22ce;
+      }
+
+      .hero-text {
+        margin-top: 0.85rem;
+        max-width: 32rem;
+        font-size: 0.98rem;
+        line-height: 1.7;
+        color: #6b21a8;
+        opacity: 0.88;
+      }
+
+      .scroll-indicator {
+        margin-top: 2.25rem;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.65rem;
+        color: #7e22ce;
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .scroll-mouse {
+        width: 1.6rem;
+        height: 2.4rem;
+        border-radius: 999px;
+        border: 1px solid rgba(147, 51, 234, 0.5);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 0.3rem;
+        overflow: hidden;
+      }
+
+      .scroll-wheel {
+        width: 0.25rem;
+        height: 0.5rem;
+        border-radius: 999px;
+        background: linear-gradient(to bottom, #a855f7, #ec4899);
+      }
+
+      .hero-visual-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-card {
+        position: relative;
+        width: min(320px, 80vw);
+        aspect-ratio: 4 / 5;
+        border-radius: 2rem;
+        background: radial-gradient(circle at 0 0, #fdf2ff 0, #f5f3ff 45%, #fce7f3 90%);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(233, 213, 255, 0.9);
+        padding: 1.2rem 1.3rem 1.4rem;
+        overflow: hidden;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.78rem;
+        padding: 0.25rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(250, 250, 255, 0.9);
+        border: 1px solid rgba(233, 213, 255, 0.9);
+        color: #7e22ce;
+      }
+
+      .hero-badge-dot {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 999px;
+        background: conic-gradient(from 0deg, #f97316, #ec4899, #a855f7, #f97316);
+      }
+
+      .crown-wrap {
+        position: absolute;
+        top: 0.9rem;
+        right: 1.1rem;
+        width: 3.1rem;
+        height: 3.1rem;
+        border-radius: 1.3rem;
+        background: radial-gradient(circle at 0 0, #fefce8 0, #fef3c7 45%, #fef9c3 90%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 14px 30px rgba(251, 191, 36, 0.45);
+      }
+
+      .crown-icon {
+        font-size: 1.45rem;
+        filter: drop-shadow(0 2px 4px rgba(202, 138, 4, 0.75));
+      }
+
+      .age-orbit-wrap {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+
+      .age-orbit {
+        position: relative;
+        width: 72%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 0, #fdf4ff 0, #f3e8ff 45%, #fee2ff 80%);
+        box-shadow: 0 25px 55px rgba(147, 51, 234, 0.28);
+        border: 1px solid rgba(233, 213, 255, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .age-orbit-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        animation: age-orbit-spin 10s linear infinite;
+        pointer-events: none;
+      }
+
+      .age-number {
+        font-size: 3.8rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        color: #4c1d95;
+      }
+
+      .age-label {
+        position: absolute;
+        bottom: 1.15rem;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(233, 213, 255, 0.9);
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #7e22ce;
+      }
+
+      .orbit-sparkle {
+        position: absolute;
+        width: 1.1rem;
+        height: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-origin: center;
+      }
+
+      .orbit-sparkle::before {
+        content: "✦";
+        font-size: 1.0rem;
+        filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.9));
+      }
+
+      .orbit-sparkle--1 {
+        top: 0.9rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .orbit-sparkle--2 {
+        right: 0.7rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .orbit-sparkle--3 {
+        bottom: 0.9rem;
+        left: 22%;
+      }
+
+      @keyframes age-orbit-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .hero-card-footer {
+        position: absolute;
+        left: 1.2rem;
+        right: 1.2rem;
+        bottom: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.78rem;
+        color: #6b21a8;
+      }
+
+      .hero-chip {
+        padding: 0.28rem 0.65rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(233, 213, 255, 0.9);
+      }
+
+      .hero-gradient-bar {
+        position: absolute;
+        inset: auto 1.2rem 0.9rem;
+        height: 0.23rem;
+        border-radius: 999px;
+        background: linear-gradient(to right, #a855f7, #ec4899, #f97316);
+        opacity: 0.85;
+      }
+
+      .blur-circle {
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(40px);
+        opacity: 0.9;
+        mix-blend-mode: screen;
+      }
+
+      .blur-circle--1 {
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, #f97316 0, rgba(249, 115, 22, 0) 70%);
+        top: -60px;
+        left: 5%;
+      }
+
+      .blur-circle--2 {
+        width: 260px;
+        height: 260px;
+        background: radial-gradient(circle, #ec4899 0, rgba(236, 72, 153, 0) 70%);
+        top: 35%;
+        right: -120px;
+      }
+
+      .blur-circle--3 {
+        width: 240px;
+        height: 240px;
+        background: radial-gradient(circle, #a855f7 0, rgba(168, 85, 247, 0) 70%);
+        bottom: -120px;
+        left: 30%;
+      }
+
+      .video-section {
+        padding: 0 0 3rem;
+        position: relative;
+      }
+
+      .video-strip-label {
+        font-size: 0.9rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #7e22ce;
+        text-align: center;
+        margin-bottom: 0.6rem;
+      }
+
+      .video-strip-title {
+        font-size: 1.4rem;
+        color: #4c1d95;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .video-strip {
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        padding-bottom: 0.4rem;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+
+      .video-card {
+        min-width: 120px;
+        max-width: 140px;
+        flex: 0 0 auto;
+        border-radius: 1.2rem;
+        padding: 0.4rem;
+        background: radial-gradient(circle at 0 0, #fdf2ff 0, #f5f3ff 55%, #fce7f3 100%);
+        border: 1px solid rgba(233, 213, 255, 0.9);
+        box-shadow: var(--shadow-subtle);
+        text-align: center;
+        scroll-snap-align: start;
+      }
+
+      .video-card-inner {
+        position: relative;
+        border-radius: 0.9rem;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .video-card video,
+      .video-card img {
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        object-fit: cover;
+        display: block;
+      }
+
+      .video-card-label {
+        margin-top: 0.5rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #7e22ce;
+      }
+
+      .section {
+        padding: 0 0 3.5rem;
+      }
+
+      .section-heading {
+        font-size: 1.1rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #7e22ce;
+        margin-bottom: 0.4rem;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        color: #4c1d95;
+        margin-bottom: 1.4rem;
+        text-align: center;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.9rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 1.2rem;
+        overflow: hidden;
+        background: radial-gradient(circle at 0 0, #fdf2ff 0, #f5f3ff 60%, #fce7f3 100%);
+        border: 1px solid rgba(233, 213, 255, 0.9);
+        box-shadow: var(--shadow-subtle);
+        min-height: 130px;
+        cursor: pointer;
+      }
+
+      .gallery-inner {
+        position: absolute;
+        inset: 0;
+        padding: 0.75rem 0.85rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .gallery-photo {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.92;
+      }
+
+      .gallery-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(24, 4, 55, 0.7), transparent 55%);
+      }
+
+      .gallery-caption {
+        position: relative;
+        z-index: 1;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      .gallery-caption-sub {
+        margin-top: 0.1rem;
+        font-size: 0.78rem;
+        color: #ffffff;
+        opacity: 0.95;
+      }
+
+      .gallery-quote {
+        margin-top: 1.7rem;
+        font-style: italic;
+        font-size: 0.96rem;
+        color: #6b21a8;
+        opacity: 0.9;
+        text-align: center;
+      }
+
+      .gallery-quote span {
+        font-family: "Georgia", "Times New Roman", serif;
+      }
+
+      .photo-viewer {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at top, #f5d0fe 0, #fce7f3 40%, #f3e8ff 100%);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        z-index: 60;
+      }
+
+      .photo-viewer.is-open {
+        display: flex;
+      }
+
+      .photo-viewer-inner {
+        width: 100%;
+        max-width: 480px;
+        border-radius: 1.5rem;
+        background: linear-gradient(135deg, #a855f7 0%, #f9a8d4 45%, #fef2ff 100%);
+        box-shadow: 0 24px 60px rgba(76, 29, 149, 0.45);
+        padding: 0.8rem 0.85rem 1.1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      .photo-viewer-img {
+        width: 100%;
+        border-radius: 1.2rem;
+        object-fit: cover;
+        max-height: min(70vh, 520px);
+        box-shadow: 0 16px 40px rgba(76, 29, 149, 0.6);
+      }
+
+      .photo-viewer-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .photo-viewer-caption {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .photo-viewer-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #fdf2ff;
+      }
+
+      .photo-viewer-subtitle {
+        margin-top: 0.1rem;
+        font-size: 0.78rem;
+        color: #fee2f2;
+        opacity: 0.95;
+      }
+
+      .photo-viewer-back-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 0.55rem 1.2rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 600;
+        background: linear-gradient(90deg, #a855f7, #ec4899);
+        color: #ffffff;
+        box-shadow: 0 10px 25px rgba(190, 24, 93, 0.45);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .photo-viewer-back-btn:active {
+        transform: translateY(1px) scale(0.99);
+        box-shadow: 0 6px 18px rgba(190, 24, 93, 0.6);
+      }
+
+      .wishes-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .wish-card {
+        border-radius: 1.4rem;
+        padding: 1rem 1.05rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border-soft);
+        box-shadow: var(--shadow-subtle);
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .wish-icon {
+        width: 2.35rem;
+        height: 2.35rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        box-shadow: 0 8px 20px rgba(148, 82, 191, 0.25);
+      }
+
+      .wish-content-title {
+        font-size: 0.98rem;
+        font-weight: 600;
+        color: #4c1d95;
+        margin-bottom: 0.15rem;
+      }
+
+      .wish-content-text {
+        font-size: 0.87rem;
+        line-height: 1.6;
+        color: #6b21a8;
+        opacity: 0.9;
+      }
+
+      .banner {
+        position: relative;
+        border-radius: 1.8rem;
+        padding: 1.4rem 1.3rem 1.5rem;
+        background: radial-gradient(circle at 0 0, rgba(244, 114, 182, 0.26) 0, transparent 50%),
+          radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.35) 0, transparent 55%),
+          linear-gradient(135deg, #8b5cf6, #ec4899);
+        color: white;
+        overflow: hidden;
+        box-shadow: 0 24px 60px rgba(147, 51, 234, 0.35);
+      }
+
+      .banner-kicker {
+        font-size: 0.78rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+
+      .banner-title {
+        margin-top: 0.6rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .banner-text {
+        margin-top: 0.4rem;
+        font-size: 0.95rem;
+        max-width: 32rem;
+        opacity: 0.95;
+      }
+
+      .banner-sub {
+        margin-top: 0.7rem;
+        font-size: 0.9rem;
+        font-style: italic;
+        opacity: 0.9;
+      }
+
+      .banner-orbit {
+        position: absolute;
+        inset: auto -80px -90px auto;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 1px dashed rgba(254, 249, 195, 0.5);
+        opacity: 0.7;
+      }
+
+      .banner-star {
+        position: absolute;
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 999px;
+        background: radial-gradient(circle at 0 0, #fefce8 0, #fde68a 45%, #fbbf24 100%);
+        box-shadow: 0 0 18px rgba(253, 224, 71, 0.9);
+      }
+
+      .banner-star--1 {
+        top: -0.4rem;
+        left: 50%;
+      }
+
+      .banner-star--2 {
+        right: -0.35rem;
+        top: 44%;
+      }
+
+      .footer {
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(216, 180, 254, 0.7);
+        margin-top: 1rem;
+        font-size: 0.82rem;
+        color: #6b21a8;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: center;
+      }
+
+      .footer-line {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .footer-heart {
+        color: #f97316;
+      }
+
+      .footer-sparkles {
+        color: #a855f7;
+      }
+
+      .confetti-layer {
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        z-index: 20;
+      }
+
+      .confetti-piece {
+        position: absolute;
+        width: 0.4rem;
+        height: 0.9rem;
+        border-radius: 0.4rem;
+      }
+
+      .global-float-emoji {
+        position: absolute;
+        font-size: 1.8rem;
+        filter: drop-shadow(0 10px 22px rgba(147, 51, 234, 0.5));
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="confetti-layer" id="confetti-layer"></div>
+      <main class="content">
+        <section class="hero" id="hero">
+          <div class="blur-circle blur-circle--1"></div>
+          <div class="blur-circle blur-circle--2"></div>
+          <div class="blur-circle blur-circle--3"></div>
+
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <div class="pill">
+                <div class="pill-dot">
+                  <div class="pill-dot-inner"></div>
+                </div>
+                <span class="pill-label">TODAY IS YOUR SPECIAL DAY</span>
+              </div>
+
+              <h1 class="hero-heading">
+                <span class="hero-heading-line" style="--delay: 0">Happy</span>
+                <span class="hero-heading-line" style="--delay: 1">Birthday</span>
+                <span class="hero-heading-line hero-heading-line--name" style="--delay: 2">Jenijen</span>
+              </h1>
+
+              <div class="sparkle-divider">
+                <div class="sparkle-line"></div>
+                <div class="sparkle-icon"></div>
+                <div class="sparkle-line"></div>
+              </div>
+
+              <div class="hero-subtitle">My Birthday Queen</div>
+
+              <p class="hero-text">
+                “Twenty‑two is your spotlight year. Here’s to gentle beginnings, roaring joy, little confessions, and owning every space you enter.”
+              </p>
+            </div>
+
+            <div class="hero-visual-wrap">
+              <div class="hero-card">
+                <div class="hero-badge">
+                  <span class="hero-badge-dot"></span>
+                  <span>February 22, 2026</span>
+                </div>
+
+                <div class="crown-wrap">
+                  <div class="crown-icon">💐</div>
+                </div>
+
+                <div class="age-orbit-wrap">
+                  <div class="age-orbit">
+                    <div class="age-number">22</div>
+                    <div class="age-label">Birthday Queen</div>
+
+                    <div class="age-orbit-ring">
+                      <div class="orbit-sparkle orbit-sparkle--1"></div>
+                      <div class="orbit-sparkle orbit-sparkle--2"></div>
+                      <div class="orbit-sparkle orbit-sparkle--3"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hero-card-footer">
+                  <div class="hero-chip">Chapter 22</div>
+                  <div class="hero-chip">of your life</div>
+                </div>
+                <div class="hero-gradient-bar"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="gallery">
+          <div class="section-heading">Photo memories</div>
+          <div class="section-title">Little snapshots of your magic</div>
+
+          <div class="gallery-grid">
+            <article class="gallery-item" data-bg="1" data-href="Pictures/your classmate.jpg">
+              <div class="gallery-photo"></div>
+              <div class="gallery-gradient"></div>
+              <div class="gallery-inner">
+                <div class="gallery-caption">With your classmates</div>
+                <div class="gallery-caption-sub">The world softens when you smile.</div>
+              </div>
+            </article>
+
+            <article class="gallery-item" data-bg="2" data-href="Pictures/best friend.jpg">
+              <div class="gallery-photo"></div>
+              <div class="gallery-gradient"></div>
+              <div class="gallery-inner">
+                <div class="gallery-caption">Best Friends</div>
+                <div class="gallery-caption-sub">Partner in crime.</div>
+              </div>
+            </article>
+
+            <article class="gallery-item" data-bg="3" data-href="Pictures/with me.jpg">
+              <div class="gallery-photo"></div>
+              <div class="gallery-gradient"></div>
+              <div class="gallery-inner">
+                <div class="gallery-caption">Me and You</div>
+                <div class="gallery-caption-sub">The kind of joy that echoes.</div>
+              </div>
+            </article>
+
+            <article class="gallery-item" data-bg="4" data-href="Pictures/with your mother.jpg">
+              <div class="gallery-photo"></div>
+              <div class="gallery-gradient"></div>
+              <div class="gallery-inner">
+                <div class="gallery-caption">Your Mother</div>
+                <div class="gallery-caption-sub">She doesn’t just raise children, she raises worlds.</div>
+              </div>
+            </article>
+          </div>
+
+          <p class="gallery-quote">
+            <span>“22 looks good on me — every moment feels like a snapshot worth keeping.”</span>
+          </p>
+        </section>
+
+        <section class="video-section" id="photos-2">
+          <div class="video-strip-label">More photo memories</div>
+          <div class="video-strip-title">Little still moments of you</div>
+          <div class="video-strip">
+            <article class="video-card">
+              <div class="video-card-inner">
+                <img src="Pictures 2/JEAN1.jpg" alt="Jean" />
+              </div>
+              <div class="video-card-label">You</div>
+            </article>
+            <article class="video-card">
+              <div class="video-card-inner">
+                <img src="Pictures 2/JEAN2.jpeg" alt="Jean" />
+              </div>
+              <div class="video-card-label">Shine</div>
+            </article>
+            <article class="video-card">
+              <div class="video-card-inner">
+                <img src="Pictures 2/JEN3.jpeg" alt="Jean" />
+              </div>
+              <div class="video-card-label">Birthday Queen</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="wishes">
+          <div class="section-heading">Birthday wishes</div>
+          <div class="section-title">A little love letter to twenty-two</div>
+
+          <div class="wishes-grid">
+            <article class="wish-card" data-variant="1">
+              <div class="wish-icon">
+                <span>💗</span>
+              </div>
+              <div>
+                <div class="wish-content-title">Love &amp; Happiness</div>
+                <p class="wish-content-text">
+                  “May your heart be a sanctuary of peace in the quiet moments, and a fountain of joy in the loud ones. You deserve love that feels like freedom, and happiness that lingers like sunlight long after the day has passed.”
+                </p>
+              </div>
+            </article>
+
+            <article class="wish-card" data-variant="2">
+              <div class="wish-icon">
+                <span>🌙</span>
+              </div>
+              <div>
+                <div class="wish-content-title">Dreams Come True</div>
+                <p class="wish-content-text">
+                  The big, scary, beautiful dreams? This is your year to start chasing them. One tiny, brave step at a
+                  time—future you is already proud.
+                </p>
+              </div>
+            </article>
+
+            <article class="wish-card" data-variant="3">
+              <div class="wish-icon">
+                <span>🎁</span>
+              </div>
+              <div>
+                <div class="wish-content-title">Surprises Await</div>
+                <p class="wish-content-text">
+                  February 22 brings soft plot twists, unexpected joy, and the kind of surprises that make you say, &quot;Of
+                  course this would happen to me.&quot;
+                </p>
+              </div>
+            </article>
+
+            <article class="wish-card" data-variant="4">
+              <div class="wish-icon">
+                <span>✨</span>
+              </div>
+              <div>
+                <div class="wish-content-title">Shine Bright</div>
+                <p class="wish-content-text">
+                  Never dim yourself to make others comfortable. The world is softer, kinder, and more golden because
+                  you are in it—please keep shining always, Jenijen.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="banner">
+            <div class="banner-kicker">Short letter reminder for you my queen</div>
+            <div class="banner-title">February 22 is your turning point — the year you honor yourself first. May it bring radiant connections, unforgettable moments, and the peace of knowing your worth.</div>
+            <p class="banner-text">
+              For every time you loved others harder than you loved yourself—this is your turning point. May this year
+              be full of friendships that feel like safety, adventures that feel like movie scenes, and quiet evenings
+              where you finally realize how extraordinary you are.
+            </p>
+            <p class="banner-sub">
+              Here&apos;s to soft mornings, glittery nights, and a universe that keeps finding new ways to say, &quot;
+              <strong>you are so deeply loved</strong>.&quot;
+            </p>
+
+            <div class="banner-orbit">
+              <div class="banner-star banner-star--1"></div>
+              <div class="banner-star banner-star--2"></div>
+            </div>
+          </div>
+        </section>
+
+        <div id="photo-viewer" class="photo-viewer" aria-hidden="true">
+          <div class="photo-viewer-inner">
+            <img id="photo-viewer-image" class="photo-viewer-img" src="" alt="Photo memory" />
+            <div class="photo-viewer-footer">
+              <div class="photo-viewer-caption">
+                <div id="photo-viewer-title" class="photo-viewer-title"></div>
+                <div id="photo-viewer-subtitle" class="photo-viewer-subtitle"></div>
+              </div>
+              <button type="button" id="photo-viewer-back" class="photo-viewer-back-btn">Back</button>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="footer-line">
+            <span class="footer-sparkles">✧</span>
+            <span>Built with love, effort, and a little bit of confidence.</span>
+            <span class="footer-sparkles">✧</span>
+          </div>
+          <div class="footer-line">
+            <span class="footer-heart">♥</span>
+            <span>Copyright © <span id="year"></span>&nbsp;Lorenz Creation · All the magic reserved.</span>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/motion@12.34.3/dist/motion.js"></script>
+    <script>
+      const { animate, inView, stagger } = Motion;
+
+      const photoViewer = document.getElementById("photo-viewer");
+      const photoViewerImg = document.getElementById("photo-viewer-image");
+      const photoViewerBack = document.getElementById("photo-viewer-back");
+      const photoViewerTitle = document.getElementById("photo-viewer-title");
+      const photoViewerSubtitle = document.getElementById("photo-viewer-subtitle");
+
+      function openPhotoViewer(src, title, subtitle) {
+        if (!photoViewer || !photoViewerImg) return;
+        photoViewerImg.src = src;
+        if (photoViewerTitle) photoViewerTitle.textContent = title || "";
+        if (photoViewerSubtitle) photoViewerSubtitle.textContent = subtitle || "";
+        photoViewer.classList.add("is-open");
+        photoViewer.setAttribute("aria-hidden", "false");
+      }
+
+      function closePhotoViewer() {
+        if (!photoViewer) return;
+        photoViewer.classList.remove("is-open");
+        photoViewer.setAttribute("aria-hidden", "true");
+      }
+
+      if (photoViewerBack) {
+        photoViewerBack.addEventListener("click", () => {
+          closePhotoViewer();
+        });
+      }
+
+      if (photoViewer) {
+        photoViewer.addEventListener("click", (event) => {
+          if (event.target === photoViewer) {
+            closePhotoViewer();
+          }
+        });
+      }
+
+      // Set year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Hero entrance animations
+      animate(
+        ".pill, .sparkle-divider, .hero-subtitle, .hero-text",
+        { opacity: [0, 1], y: [22, 0] },
+        { duration: 0.9, delay: stagger(0.07), easing: "ease-out" }
+      );
+
+      // iPhone-style springy heading lines, one by one
+      animate(
+        ".hero-heading-line",
+        { opacity: [0, 1], y: [26, 0], scale: [0.9, 1] },
+        {
+          delay: stagger(0.14, { start: 0.25 }),
+          duration: 1.1,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+        }
+      );
+
+      animate(
+        ".blur-circle--1, .blur-circle--2, .blur-circle--3",
+        { opacity: [0, 0.9], scale: [0.9, 1] },
+        { duration: 1.4, easing: "ease-out" }
+      );
+
+      animate(
+        ".hero-card",
+        { opacity: [0, 1], y: [32, 0], scale: [0.96, 1] },
+        { duration: 0.9, delay: 0.2, easing: "ease-out" }
+      );
+
+      // Crown float
+      animate(
+        ".crown-icon",
+        { y: [0, -3, 0] },
+        { duration: 2.3, repeat: Infinity, easing: "ease-in-out" }
+      );
+
+      // Gallery "photos" using your real pictures and open viewer on tap/click
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        const idx = item.getAttribute("data-bg");
+        const photo = item.querySelector(".gallery-photo");
+        if (!photo) return;
+
+        if (idx === "1") photo.style.backgroundImage = "url('Pictures/your classmate.jpg')";
+        if (idx === "2") photo.style.backgroundImage = "url('Pictures/best friend.jpg')";
+        if (idx === "3") photo.style.backgroundImage = "url('Pictures/with me.jpg')";
+        if (idx === "4") photo.style.backgroundImage = "url('Pictures/with your mother.jpg')";
+
+        const href = item.getAttribute("data-href");
+        if (href) {
+          const titleEl = item.querySelector(".gallery-caption");
+          const subtitleEl = item.querySelector(".gallery-caption-sub");
+          item.addEventListener("click", () => {
+            const title = titleEl ? titleEl.textContent : "";
+            const subtitle = subtitleEl ? subtitleEl.textContent : "";
+            openPhotoViewer(href, title, subtitle);
+          });
+        }
+      });
+
+      // Floating emojis across the whole background (continuous)
+      (function createFloatingEmojis() {
+        const layer = document.getElementById("confetti-layer");
+        if (!layer) return;
+
+        const emojiSet = ["🎈", "💗", "✨"];
+
+        function spawnEmoji() {
+          const el = document.createElement("div");
+          el.className = "global-float-emoji";
+          el.textContent = emojiSet[Math.floor(Math.random() * emojiSet.length)];
+
+          // Random horizontal position across the screen
+          const startX = Math.random() * 100; // 0–100vw
+          el.style.left = startX + "vw";
+          el.style.bottom = "-3rem"; // start just below the bottom edge
+
+          layer.appendChild(el);
+
+          // Rise very quickly from bottom to well above the top of the screen
+          const viewportHeight = window.innerHeight || 800;
+          const rise = viewportHeight * (1.3 + Math.random() * 0.7); // cover whole screen height+
+          const duration = 3.5 + Math.random() * 1.5; // slightly slower movement
+
+          animate(
+            el,
+            { y: [0, -rise], opacity: [0, 1, 0] },
+            {
+              duration,
+              easing: "ease-out",
+              onfinished: () => {
+                el.remove();
+              },
+            }
+          );
+        }
+
+        // Start with a faster burst
+        for (let i = 0; i < 10; i++) {
+          setTimeout(spawnEmoji, i * 150);
+        }
+
+        // Then keep spawning quickly while page is open
+        setInterval(spawnEmoji, 600);
+      })();
+
+      // Wishes card background variants
+      document.querySelectorAll(".wish-card").forEach((card) => {
+        const variant = card.getAttribute("data-variant");
+        const icon = card.querySelector(".wish-icon");
+        if (!icon) return;
+        if (variant === "1") {
+          card.style.background =
+            "linear-gradient(135deg, rgba(244, 114, 182, 0.16), rgba(251, 113, 133, 0.08))";
+          icon.style.background = "radial-gradient(circle at 0 0, #fdf2ff, #f97316)";
+        } else if (variant === "2") {
+          card.style.background =
+            "linear-gradient(135deg, rgba(129, 140, 248, 0.2), rgba(56, 189, 248, 0.12))";
+          icon.style.background = "radial-gradient(circle at 0 0, #eef2ff, #6366f1)";
+        } else if (variant === "3") {
+          card.style.background =
+            "linear-gradient(135deg, rgba(251, 191, 36, 0.18), rgba(249, 115, 22, 0.12))";
+          icon.style.background = "radial-gradient(circle at 0 0, #fffbeb, #f59e0b)";
+        } else {
+          card.style.background =
+            "linear-gradient(135deg, rgba(244, 114, 182, 0.14), rgba(168, 85, 247, 0.16))";
+          icon.style.background = "radial-gradient(circle at 0 0, #fdf2ff, #a855f7)";
+        }
+      });
+
+      // While-in-view style animations for sections and cards
+      inView(".section", (section) => {
+        const heading = section.querySelector(".section-heading");
+        const title = section.querySelector(".section-title");
+        const children = [...section.querySelectorAll(".gallery-grid, .wishes-grid, .banner, .gallery-quote")];
+
+        if (heading || title) {
+          animate(
+            [heading, title].filter(Boolean),
+            { opacity: [0, 1], y: [22, 0] },
+            { duration: 0.7, easing: "ease-out", delay: stagger(0.06) }
+          );
+        }
+
+        if (children.length) {
+          animate(
+            children,
+            { opacity: [0, 1], y: [26, 0] },
+            { duration: 0.7, easing: "ease-out", delay: stagger(0.08) }
+          );
+        }
+      });
+
+      inView(".wish-card", (card) => {
+        animate(
+          card,
+          { opacity: [0, 1], y: [22, 0], scale: [0.98, 1] },
+          { duration: 0.6, easing: "ease-out" }
+        );
+
+        card.addEventListener("mouseenter", () => {
+          animate(
+            card,
+            { y: -6, boxShadow: "0 18px 38px rgba(148, 82, 191, 0.22)" },
+            { duration: 0.25, easing: "ease-out" }
+          );
+        });
+        card.addEventListener("mouseleave", () => {
+          animate(
+            card,
+            { y: 0, boxShadow: "0 10px 30px rgba(148, 82, 191, 0.1)" },
+            { duration: 0.25, easing: "ease-out" }
+          );
+        });
+      });
+
+      inView(".gallery-item", (item) => {
+        animate(
+          item,
+          { opacity: [0, 1], y: [20, 0] },
+          { duration: 0.5, easing: "ease-out" }
+        );
+
+        item.addEventListener("mouseenter", () => {
+          animate(
+            item,
+            { y: -6, boxShadow: "0 20px 40px rgba(148, 82, 191, 0.2)" },
+            { duration: 0.25, easing: "ease-out" }
+          );
+        });
+        item.addEventListener("mouseleave", () => {
+          animate(
+            item,
+            { y: 0, boxShadow: "0 10px 30px rgba(148, 82, 191, 0.1)" },
+            { duration: 0.25, easing: "ease-out" }
+          );
+        });
+      });
+
+      // Banner orbit + stars
+      animate(
+        ".banner-orbit",
+        { rotate: 360 },
+        { duration: 26, repeat: Infinity, easing: "linear" }
+      );
+      animate(
+        ".banner-star--1",
+        { scale: [1, 1.2, 1] },
+        { duration: 2.4, repeat: Infinity, easing: "ease-in-out" }
+      );
+      animate(
+        ".banner-star--2",
+        { scale: [1.1, 0.9, 1.1] },
+        { duration: 2.9, repeat: Infinity, easing: "ease-in-out" }
+      );
+
+      // (Confetti rectangles removed so only hearts / balloons / stars show)
+    </script>
+  </body>
+</html>
