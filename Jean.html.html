@@ -472,6 +472,12 @@
         scroll-snap-type: x mandatory;
       }
 
+      .video-strip--single {
+        justify-content: center;
+        overflow: hidden;
+        scroll-snap-type: none;
+      }
+
       .video-card {
         min-width: 120px;
         max-width: 140px;
@@ -508,6 +514,17 @@
         color: #7e22ce;
       }
 
+      .video-strip-description {
+        margin: 0.85rem auto 0;
+        max-width: 520px;
+        padding: 0 0.9rem;
+        text-align: center;
+        color: #6b21a8;
+        opacity: 0.9;
+        font-style: italic;
+        font-size: 0.96rem;
+      }
+
       .section {
         padding: 0 0 3.5rem;
       }
@@ -541,17 +558,16 @@
         background: radial-gradient(circle at 0 0, #fdf2ff 0, #f5f3ff 60%, #fce7f3 100%);
         border: 1px solid rgba(233, 213, 255, 0.9);
         box-shadow: var(--shadow-subtle);
-        min-height: 130px;
+        min-height: 0;
         cursor: pointer;
-      }
-
-      .gallery-inner {
-        position: absolute;
-        inset: 0;
-        padding: 0.75rem 0.85rem;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+      }
+
+      .gallery-media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
       }
 
       .gallery-photo {
@@ -568,19 +584,25 @@
         background: linear-gradient(to top, rgba(24, 4, 55, 0.7), transparent 55%);
       }
 
+      .gallery-description {
+        padding: 0.75rem 0.85rem 0.9rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.12rem;
+      }
+
       .gallery-caption {
         position: relative;
         z-index: 1;
-        color: #ffffff;
-        font-weight: 500;
-        font-size: 0.9rem;
+        color: #4c1d95;
+        font-weight: 600;
+        font-size: 0.93rem;
       }
 
       .gallery-caption-sub {
-        margin-top: 0.1rem;
-        font-size: 0.78rem;
-        color: #ffffff;
-        opacity: 0.95;
+        font-size: 0.8rem;
+        color: #6b21a8;
+        opacity: 0.98;
       }
 
       .gallery-quote {
@@ -634,8 +656,13 @@
       .photo-viewer-footer {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         gap: 0.75rem;
+      }
+
+      /* Hide viewer text only */
+      .photo-viewer-caption {
+        display: none !important;
       }
 
       .photo-viewer-caption {
@@ -857,7 +884,7 @@
               <h1 class="hero-heading">
                 <span class="hero-heading-line" style="--delay: 0">Happy</span>
                 <span class="hero-heading-line" style="--delay: 1">Birthday</span>
-                <span class="hero-heading-line hero-heading-line--name" style="--delay: 2">Jenijen</span>
+                <span class="hero-heading-line hero-heading-line--name" style="--delay: 2">Joana</span>
               </h1>
 
               <div class="sparkle-divider">
@@ -869,7 +896,7 @@
               <div class="hero-subtitle">My Birthday Queen</div>
 
               <p class="hero-text">
-                “Twenty‑two is your spotlight year. Here’s to gentle beginnings, roaring joy, little confessions, and owning every space you enter.”
+                “Twenties is your spotlight year. Here’s to gentle beginnings, roaring joy, little confessions, and owning every space you enter.”
               </p>
             </div>
 
@@ -877,7 +904,7 @@
               <div class="hero-card">
                 <div class="hero-badge">
                   <span class="hero-badge-dot"></span>
-                  <span>February 22, 2026</span>
+                  <span>March 28, 2026</span>
                 </div>
 
                 <div class="crown-wrap">
@@ -886,7 +913,7 @@
 
                 <div class="age-orbit-wrap">
                   <div class="age-orbit">
-                    <div class="age-number">22</div>
+                    <div class="age-number">20</div>
                     <div class="age-label">Birthday Queen</div>
 
                     <div class="age-orbit-ring">
@@ -898,7 +925,7 @@
                 </div>
 
                 <div class="hero-card-footer">
-                  <div class="hero-chip">Chapter 22</div>
+                  <div class="hero-chip">Chapter 20</div>
                   <div class="hero-chip">of your life</div>
                 </div>
                 <div class="hero-gradient-bar"></div>
@@ -912,76 +939,81 @@
           <div class="section-title">Little snapshots of your magic</div>
 
           <div class="gallery-grid">
-            <article class="gallery-item" data-bg="1" data-href="Pictures/your classmate.jpg">
-              <div class="gallery-photo"></div>
-              <div class="gallery-gradient"></div>
-              <div class="gallery-inner">
-                <div class="gallery-caption">With your classmates</div>
-                <div class="gallery-caption-sub">The world softens when you smile.</div>
+            <article
+              class="gallery-item"
+              data-bg="1"
+              data-href="Jhon carl/Carl 1.jpg"
+              data-title="With your classmates"
+              data-subtitle="The world softens the moment you smile."
+            >
+              <div class="gallery-media">
+                <div class="gallery-photo"></div>
+                <div class="gallery-gradient"></div>
               </div>
             </article>
 
-            <article class="gallery-item" data-bg="2" data-href="Pictures/best friend.jpg">
-              <div class="gallery-photo"></div>
-              <div class="gallery-gradient"></div>
-              <div class="gallery-inner">
-                <div class="gallery-caption">Best Friends</div>
-                <div class="gallery-caption-sub">Partner in crime.</div>
+            <article
+              class="gallery-item"
+              data-bg="2"
+              data-href="Jhon carl/Carl 2.jpg"
+              data-title="Best Friends"
+              data-subtitle="Partners in crime, always."
+            >
+              <div class="gallery-media">
+                <div class="gallery-photo"></div>
+                <div class="gallery-gradient"></div>
               </div>
             </article>
 
-            <article class="gallery-item" data-bg="3" data-href="Pictures/with me.jpg">
-              <div class="gallery-photo"></div>
-              <div class="gallery-gradient"></div>
-              <div class="gallery-inner">
-                <div class="gallery-caption">Me and You</div>
-                <div class="gallery-caption-sub">The kind of joy that echoes.</div>
+            <article
+              class="gallery-item"
+              data-bg="3"
+              data-href="Jhon carl/Carl 3.jpg"
+              data-title="Me and You"
+              data-subtitle="Joy that echoes back."
+            >
+              <div class="gallery-media">
+                <div class="gallery-photo"></div>
+                <div class="gallery-gradient"></div>
               </div>
             </article>
 
-            <article class="gallery-item" data-bg="4" data-href="Pictures/with your mother.jpg">
-              <div class="gallery-photo"></div>
-              <div class="gallery-gradient"></div>
-              <div class="gallery-inner">
-                <div class="gallery-caption">Your Mother</div>
-                <div class="gallery-caption-sub">She doesn’t just raise children, she raises worlds.</div>
+            <article
+              class="gallery-item"
+              data-bg="4"
+              data-href="Jhon carl/Carl 4.jpg"
+              data-title="Your Mother"
+              data-subtitle="She raises worlds, not just children."
+            >
+              <div class="gallery-media">
+                <div class="gallery-photo"></div>
+                <div class="gallery-gradient"></div>
               </div>
             </article>
           </div>
 
           <p class="gallery-quote">
-            <span>“22 looks good on me — every moment feels like a snapshot worth keeping.”</span>
+            <span>“20 looks good on you—every moment feels like magic, especially with me.”</span>
           </p>
         </section>
 
         <section class="video-section" id="photos-2">
-          <div class="video-strip-label">More photo memories</div>
-          <div class="video-strip-title">Little still moments of you</div>
-          <div class="video-strip">
-            <article class="video-card">
+          <div class="video-strip-label">A little gift</div>
+          <div class="video-strip-title">Flowers for the birthday queen</div>
+          <div class="video-strip video-strip--single">
+            <article class="video-card" data-href="Jhon carl/Flower.jpg">
               <div class="video-card-inner">
-                <img src="Pictures 2/JEAN1.jpg" alt="Jean" />
+                <img src="Jhon carl/Flower.jpg" alt="Flowers" />
               </div>
-              <div class="video-card-label">You</div>
-            </article>
-            <article class="video-card">
-              <div class="video-card-inner">
-                <img src="Pictures 2/JEAN2.jpeg" alt="Jean" />
-              </div>
-              <div class="video-card-label">Shine</div>
-            </article>
-            <article class="video-card">
-              <div class="video-card-inner">
-                <img src="Pictures 2/JEN3.jpeg" alt="Jean" />
-              </div>
-              <div class="video-card-label">Birthday Queen</div>
+              <div class="video-card-label">Gift flowers</div>
             </article>
           </div>
+          <p class="video-strip-description">A small bouquet, a big message: you are loved, celebrated, and always worth the effort.</p>
         </section>
 
         <section class="section" id="wishes">
           <div class="section-heading">Birthday wishes</div>
-          <div class="section-title">A little love letter to twenty-two</div>
+          <div class="section-title">A little love letter to twenties</div>
 
           <div class="wishes-grid">
             <article class="wish-card" data-variant="1">
@@ -1016,7 +1048,7 @@
               <div>
                 <div class="wish-content-title">Surprises Await</div>
                 <p class="wish-content-text">
-                  February 22 brings soft plot twists, unexpected joy, and the kind of surprises that make you say, &quot;Of
+                  March 28 brings soft plot twists, unexpected joy, and the kind of surprises that make you say, &quot;Of
                   course this would happen to me.&quot;
                 </p>
               </div>
@@ -1030,23 +1062,35 @@
                 <div class="wish-content-title">Shine Bright</div>
                 <p class="wish-content-text">
                   Never dim yourself to make others comfortable. The world is softer, kinder, and more golden because
-                  you are in it—please keep shining always, Jenijen.
+                  you are in it—please keep shining always.
                 </p>
               </div>
             </article>
           </div>
 
           <div class="banner">
-            <div class="banner-kicker">Short letter reminder for you my queen</div>
-            <div class="banner-title">February 22 is your turning point — the year you honor yourself first. May it bring radiant connections, unforgettable moments, and the peace of knowing your worth.</div>
+            <div class="banner-kicker">Happy 20th Birthday, Joana 🎂✨</div>
+            <div class="banner-title">March 28 isn’t just another date—it marks a new chapter in your life as you step into your twenties. A chapter filled with growth, new beginnings, and opportunities waiting for you. I sincerely wish you nothing but the best for your future, and good health not only for you but also for your family.</div>
             <p class="banner-text">
-              For every time you loved others harder than you loved yourself—this is your turning point. May this year
-              be full of friendships that feel like safety, adventures that feel like movie scenes, and quiet evenings
-              where you finally realize how extraordinary you are.
+              I hope the universe gives you all the good and genuine things you deserve.<br />
+              <br />
+              Life won’t always be easy, and some days will feel heavier than others—but don’t forget how strong you are.
+              You deserve peace, happiness, and the same love, care, and understanding that you give so freely to others.
+              You deserve all the good things this world has to offer. You deserve the same love you give to people.
+              You deserve to feel special. You deserve kindness in every way. You deserve to wake up happy.
+              You deserve everything you don’t think you deserve.<br />
+              <br />
+              As you turn 20, I hope you continue chasing your dreams with courage and confidence. Take your time, trust your journey,
+              and believe that everything will fall into place. You have so much ahead of you, and I know you’re capable of achieving great things.<br />
+              <br />
+              Even from a distance, I’ll always be here supporting you in my own quiet way and praying for your success.<br />
+              <br />
+              Stay healthy, be happy, and don’t forget to take care of yourself. I want to see you happy and successful—I’ll always support you from here.<br />
+              <br />
+              Happy Birthday again, Joana. May this year bring you closer to the life you truly deserve. 🤍
             </p>
             <p class="banner-sub">
-              Here&apos;s to soft mornings, glittery nights, and a universe that keeps finding new ways to say, &quot;
-              <strong>you are so deeply loved</strong>.&quot;
+              Stay healthy, be happy, and always take care of yourself. I’m always rooting for you, no matter what. 🌷
             </p>
 
             <div class="banner-orbit">
@@ -1077,7 +1121,7 @@
           </div>
           <div class="footer-line">
             <span class="footer-heart">♥</span>
-            <span>Copyright © <span id="year"></span>&nbsp;Lorenz Creation · All the magic reserved.</span>
+            <span>Copyright © <span id="year"></span>&nbsp;Jhon Carl · All the magic reserved.</span>
           </div>
         </footer>
       </main>
@@ -1168,21 +1212,32 @@
         const photo = item.querySelector(".gallery-photo");
         if (!photo) return;
 
-        if (idx === "1") photo.style.backgroundImage = "url('Pictures/your classmate.jpg')";
-        if (idx === "2") photo.style.backgroundImage = "url('Pictures/best friend.jpg')";
-        if (idx === "3") photo.style.backgroundImage = "url('Pictures/with me.jpg')";
-        if (idx === "4") photo.style.backgroundImage = "url('Pictures/with your mother.jpg')";
+        if (idx === "1") photo.style.backgroundImage = "url('Jhon carl/Carl 1.jpg')";
+        if (idx === "2") photo.style.backgroundImage = "url('Jhon carl/Carl 2.jpg')";
+        if (idx === "3") photo.style.backgroundImage = "url('Jhon carl/Carl 3.jpg')";
+        if (idx === "4") photo.style.backgroundImage = "url('Jhon carl/Carl 4.jpg')";
 
         const href = item.getAttribute("data-href");
         if (href) {
-          const titleEl = item.querySelector(".gallery-caption");
-          const subtitleEl = item.querySelector(".gallery-caption-sub");
           item.addEventListener("click", () => {
-            const title = titleEl ? titleEl.textContent : "";
-            const subtitle = subtitleEl ? subtitleEl.textContent : "";
+            const title = item.getAttribute("data-title") || "";
+            const subtitle = item.getAttribute("data-subtitle") || "";
             openPhotoViewer(href, title, subtitle);
           });
         }
+      });
+
+      // Make the "More photo memories" card clickable too
+      document.querySelectorAll(".video-card[data-href]").forEach((card) => {
+        const href = card.getAttribute("data-href");
+        if (!href) return;
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => {
+          const subtitleEl = document.querySelector("#photos-2 .video-strip-description");
+          const title = "Gift flowers";
+          const subtitle = subtitleEl ? subtitleEl.textContent : "";
+          openPhotoViewer(href, title, subtitle);
+        });
       });
 
       // Floating emojis across the whole background (continuous)
