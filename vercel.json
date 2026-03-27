@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/joana.html",
+      "permanent": false
+    }
+  ]
+}
+
